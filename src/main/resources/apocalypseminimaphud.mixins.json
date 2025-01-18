@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "top.ilov.mcmods.apocalypsehud.mixin",
+  "plugin": "top.ilov.mcmods.apocalypsehud.mixin.ApocalypseHudMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "minimaps.XaeroMixin",
+    "ApocalypseMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1,
+    "maxShiftBy": 2
+  }
+}
