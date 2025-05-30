@@ -14,7 +14,6 @@ public class DifficultyUtils {
     public static final int[] COLORS = {
             0xFFFFFF, 0x88FFFF, 0x88FF88, 0xFFFF88, 0xFFBB88, 0xFF8888
     };
-    private static Style colorStyle = Style.EMPTY;
 
     public static MutableComponent getDisplayText(Player player) {
 
@@ -43,8 +42,11 @@ public class DifficultyUtils {
         difficulty /= 24000L;
         String parsedDifficulty = difficulty > 0L ? (difficulty + "." + partialDifficulty) : "0.0";
 
+        Style colorStyle;
         if (!ApocalypseMinimapHudMod.CONFIG.isDisableDifficultyDisplayColor()) {
             colorStyle = Style.EMPTY.withColor(color);
+        } else {
+            colorStyle = Style.EMPTY.withColor(COLORS[0]);
         }
 
         MutableComponent difficultyText = Component.translatable("apocalypseminimaphud.info.difficulty", parsedDifficulty)
