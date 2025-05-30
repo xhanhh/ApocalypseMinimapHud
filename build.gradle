@@ -83,8 +83,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
 
     //implementation files('libs/Apocalypse-Rebooted-1.20.1-1.4.7-r.jar')
-    implementation fg.deobf("maven.modrinth:xaeros-minimap:24.6.1_Forge_1.20")
-    implementation fg.deobf("maven.modrinth:apocalypse-rebooted:1.20.1-1.4.7-r")
+    implementation fg.deobf("maven.modrinth:xaeros-minimap:25.2.6_Forge_1.20")
+    implementation fg.deobf("maven.modrinth:apocalypse-rebooted:1.20.1-2.8.8-r")
+    implementation fg.deobf("maven.modrinth:crust:1.20.1-2.5.10")
     implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:11.1.118")
 }
 
