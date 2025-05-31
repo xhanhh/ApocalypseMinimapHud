@@ -1,10 +1,11 @@
 {
   "homepage": "https://github.com/xhanhh/ApocalypseMinimapHud",
   "1.20.1": {
-    "1.20.1-v0.0.1": "No changelog"
+    "1.20.1-v0.0.1": "No changelog",
+    "1.20.1-v0.0.2": "Fixed the issue where the screen display of the original mod was forcibly disabled above Apocalypse Rebooted 1.20.1-2.x.x-r."
   },
   "promos": {
-    "1.20.1-latest": "1.20.1-v0.0.1",
-    "1.20.1-recommended": "1.20.1-v0.0.1"
+    "1.20.1-latest": "1.20.1-v0.0.2",
+    "1.20.1-recommended": "1.20.1-v0.0.2"
   }
 }
