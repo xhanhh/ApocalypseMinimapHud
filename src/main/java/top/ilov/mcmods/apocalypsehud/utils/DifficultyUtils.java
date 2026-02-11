@@ -1,6 +1,6 @@
 package top.ilov.mcmods.apocalypsehud.utils;
 
-import com.toast.apocalypse.common.util.CapabilityHelper;
+import com.toast.apocalypse.common.capability.CapabilityHelper;
 import com.toast.apocalypse.common.util.References;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

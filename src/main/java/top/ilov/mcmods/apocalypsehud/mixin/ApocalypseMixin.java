@@ -13,7 +13,8 @@ import top.ilov.mcmods.apocalypsehud.ApocalypseMinimapHudMod;
 public class ApocalypseMixin {
 
     @Inject(method = "renderDifficulty", at = @At("HEAD"), cancellable = true)
-    private static void renderDifficulty(ForgeGui gui, GuiGraphics guiGraphics, float partialTick, int width, int height, CallbackInfo ci) {
+    private static void renderDifficulty(ForgeGui gui, GuiGraphics guiGraphics,
+                                         int width, int height, CallbackInfo ci) {
         if (!ApocalypseMinimapHudMod.CONFIG.isEnableApocalypseDisplayText()) {
             ci.cancel();
             return;

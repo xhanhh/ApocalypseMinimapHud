@@ -28,6 +28,13 @@ public class ClothConfig {
                 .build());
 
         client.addEntry(entryBuilder
+                .startBooleanToggle(Component.translatable("config.apocalypseminimaphud.enable_xaero_minimap_difficulty_display"),
+                        ApocalypseMinimapHudMod.CONFIG.isEnableXaeroMinimapDifficultyDisplay())
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> ApocalypseMinimapHudMod.CONFIG.setEnableXaeroMinimapDifficultyDisplay(newValue))
+                .build());
+
+        client.addEntry(entryBuilder
                 .startBooleanToggle(Component.translatable("config.apocalypseminimaphud.hide_difficulty_rate"),
                         ApocalypseMinimapHudMod.CONFIG.isHideDifficultyRate())
                 .setDefaultValue(false)

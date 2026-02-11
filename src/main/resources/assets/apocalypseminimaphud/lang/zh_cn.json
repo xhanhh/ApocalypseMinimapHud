@@ -6,8 +6,9 @@
 
   "config.apocalypseminimaphud.title": "启示录：小地图Hud - 配置",
   "config.apocalypseminimaphud.client": "客户端",
-  "config.apocalypseminimaphud.enable_apocalypse_display_text": "启用启示录的难度和比率显示",
-  "config.apocalypseminimaphud.enable_apocalypse_display_text.tooltip": "屏幕上像“Difficulty: 0.0”的文字，该配置优先级为最高",
+  "config.apocalypseminimaphud.enable_apocalypse_display_text": "启用 启示录 原模组的难度和比率显示",
+  "config.apocalypseminimaphud.enable_apocalypse_display_text.tooltip": "屏幕上方像“Difficulty: 0.0”的文字，该配置优先级为最高",
+  "config.apocalypseminimaphud.enable_xaero_minimap_difficulty_display": "启用在 Xaero的小地图 中的难度信息显示",
   "config.apocalypseminimaphud.hide_difficulty_rate": "隐藏本模组难度显示中的比率",
   "config.apocalypseminimaphud.disable_difficulty_display_color": "禁用本模组难度显示的文字颜色"
 }
