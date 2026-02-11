@@ -22,9 +22,10 @@ public class ApocalypseMinimapHudMod {
     public static AMHConfig CONFIG = new AMHConfig();
 
     public static ResourceLocation rl(String path) {
-        return new ResourceLocation(MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
+    @SuppressWarnings("removal")
     public ApocalypseMinimapHudMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -37,6 +38,7 @@ public class ApocalypseMinimapHudMod {
 
     }
 
+    @SuppressWarnings("removal")
     private void clientSetup(final FMLClientSetupEvent event) {
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> ClothConfig.genConfigScreen(screen)));
