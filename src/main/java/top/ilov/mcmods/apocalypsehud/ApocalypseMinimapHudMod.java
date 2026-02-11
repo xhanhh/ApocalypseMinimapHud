@@ -11,6 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.ilov.mcmods.apocalypsehud.integration.clothconfig.ClothConfig;
+import top.ilov.mcmods.apocalypsehud.utils.FMLUtils;
 
 @Mod(ApocalypseMinimapHudMod.MOD_ID)
 public class ApocalypseMinimapHudMod {
@@ -33,6 +34,7 @@ public class ApocalypseMinimapHudMod {
 
         CONFIG = AMHConfig.loadConfig();
 
+        LOGGER.info("Hello Apocalypse! Hello maps!");
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -40,8 +42,11 @@ public class ApocalypseMinimapHudMod {
 
     @SuppressWarnings("removal")
     private void clientSetup(final FMLClientSetupEvent event) {
-        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> ClothConfig.genConfigScreen(screen)));
+        if (FMLUtils.isModLoaded("cloth_config")) {
+            ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
+                    () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) ->
+                            ClothConfig.genConfigScreen(screen)));
+        }
     }
 
 }
