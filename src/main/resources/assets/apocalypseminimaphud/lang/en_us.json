@@ -6,8 +6,9 @@
 
   "config.apocalypseminimaphud.title": "Apocalypse Minimap Hud - Config",
   "config.apocalypseminimaphud.client": "Client",
-  "config.apocalypseminimaphud.enable_apocalypse_display_text": "Enable Apocalypse Difficulty & Rate display",
+  "config.apocalypseminimaphud.enable_apocalypse_display_text": "Enable Apocalypse Mod Difficulty & Rate display",
   "config.apocalypseminimaphud.enable_apocalypse_display_text.tooltip": "A display with the words \"Difficulty: 0.0\" at the top of the screen, This configuration has the highest priority",
+  "config.apocalypseminimaphud.enable_xaero_minimap_difficulty_display": "Enable Xaero Minimap difficulty info display",
   "config.apocalypseminimaphud.hide_difficulty_rate": "Hide the Rate for Minimap Difficulty display",
   "config.apocalypseminimaphud.disable_difficulty_display_color": "Disable text colors for minimap difficulty display"
 }
