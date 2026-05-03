@@ -3,38 +3,43 @@ package top.ilov.mcmods.apocalypsehud.integration.xaero;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import top.ilov.mcmods.apocalypsehud.ApocalypseMinimapHudMod;
 import top.ilov.mcmods.apocalypsehud.utils.DifficultyUtils;
-import xaero.common.minimap.info.InfoDisplay;
-import xaero.common.minimap.info.codec.InfoDisplayCommonStateCodecs;
-import xaero.common.minimap.info.widget.InfoDisplayCommonWidgetFactories;
-
-import java.util.ArrayList;
-import java.util.List;
+import xaero.hud.minimap.info.InfoDisplay;
+import xaero.hud.minimap.info.InfoDisplay.Builder;
+import xaero.hud.minimap.info.codec.InfoDisplayCommonStateCodecs;
+import xaero.hud.minimap.info.widget.InfoDisplayCommonWidgetFactories;
 
 public class DifficultyInfoDisplays {
 
-    public static final InfoDisplay<Boolean> DIFFICULTY_DISPLAY;
-    private static final List<InfoDisplay<?>> ALL = new ArrayList<>();
+    public static final Builder<Boolean> DIFFICULTY_BUILDER;
+    public static InfoDisplay<Boolean> DIFFICULTY_DISPLAY;
 
     static {
         Minecraft mc = Minecraft.getInstance();
 
-
-        DIFFICULTY_DISPLAY = new InfoDisplay<>("apocalypse-difficulty",
-                Component.translatable("xaerominimap.apocalypseminimaphud.infodisplay.apocalypse"),
-                true,
-                InfoDisplayCommonStateCodecs.BOOLEAN,
-                InfoDisplayCommonWidgetFactories.OFF_ON,
-                (displayInfo, compiler, session, processor, x, y, w, h, scale, size, playerBlockX, playerBlockY, playerBlockZ, playerPos) -> {
-                    if (displayInfo.getState()) {
-                        Player player = mc.player;
-                        if (player != null && mc.level != null && !mc.options.hideGui) {
-                            compiler.addLine(DifficultyUtils.getDisplayText(player));
-                        }
+        Builder<Boolean> builder = Builder.begin();
+        DIFFICULTY_BUILDER = builder
+                .setId("apocalypse-difficulty")
+                .setName(Component.translatable("xaerominimap.apocalypseminimaphud.infodisplay.apocalypse"))
+                .setDefaultState(true)
+                .setCodec(InfoDisplayCommonStateCodecs.BOOLEAN)
+                .setWidgetFactory(InfoDisplayCommonWidgetFactories.OFF_ON)
+                .setCompiler((displayInfo, compiler, session, availableWidth, playerPos) -> {
+                    if (!Boolean.TRUE.equals(displayInfo.getState())) {
+                        return;
                     }
-                },
-                ALL
-        );
+                    if (ApocalypseMinimapHudMod.CONFIG == null) {
+                        return;
+                    }
+
+                    Player player = mc.player;
+                    if (player == null || mc.level == null || mc.options.hideGui) {
+                        return;
+                    }
+
+                    compiler.addLine(DifficultyUtils.getDisplayText(player));
+                });
     }
 
 }

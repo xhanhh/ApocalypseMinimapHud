@@ -71,6 +71,15 @@ repositories {
     maven { url = "https://maven.aliyun.com/repository/public" }
     maven { url = "https://maven.aliyun.com/repository/gradle-plugin" }
     maven { url "https://maven.shedaniel.me/" }
+    maven {
+        url = "https://chocolateminecraft.com/maven"
+    }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
     maven { url = "https://api.modrinth.com/maven" }
     mavenCentral()
 
@@ -79,14 +88,14 @@ repositories {
 dependencies {
     minecraft "net.neoforged:forge:${minecraft_version}-${neo_version}"
 
-    compileOnly 'org.projectlombok:lombok:1.18.36'
-    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
 
-    //implementation files('libs/Apocalypse-Rebooted-1.20.1-1.4.7-r.jar')
-    implementation fg.deobf("maven.modrinth:xaeros-minimap:25.2.6_Forge_1.20")
-    implementation fg.deobf("maven.modrinth:apocalypse-rebooted:1.20.1-2.8.8-r")
-    implementation fg.deobf("maven.modrinth:crust:1.20.1-2.5.10")
-    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:11.1.118")
+    compileOnly fg.deobf("xaero.lib:xaerolib-forge-1.20.1:${xaero_lib_version}")
+    implementation fg.deobf("xaero.minimap:xaerominimap-forge-1.20.1:${xaero_minimap_version}")
+    implementation fg.deobf("maven.modrinth:apocalypse-rebooted:${mr_apocalypse_version}")
+    implementation fg.deobf("curse.maven:crust-873570:${curse_crust_version}")
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
 }
 
 tasks.withType(ProcessResources).configureEach {
